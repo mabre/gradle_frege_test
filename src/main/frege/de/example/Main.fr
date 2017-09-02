@@ -1,0 +1,12 @@
+module de.example.Main
+where
+
+import de.example.MyError
+
+data MyException = pure native de.example.MyException where
+    pure native new new        :: MyError -> MyException
+    pure native get getMyError :: MyException -> MyError
+derive Exceptional MyException
+
+throwException :: MyError -> IO a
+throwException = throwIO . MyException.new

@@ -1,0 +1,8 @@
+module de.example.MyError
+where
+
+data MyError = ! MyError {
+  message :: String,
+  line :: Int
+}
+derive Show MyError
