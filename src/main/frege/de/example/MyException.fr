@@ -1,0 +1,17 @@
+module de.example.MyException
+where
+
+import de.example.MyError
+
+native module where {
+    public class MyException extends Exception {
+        MyError.TMyError myError;
+        public MyException(MyError.TMyError err) {
+            super("MyException: " +  MyError.IShow_MyError.show(err));
+            myError = err;
+        }
+        public MyError.TMyError getMyError() {
+            return myError;
+        }
+    }
+}
